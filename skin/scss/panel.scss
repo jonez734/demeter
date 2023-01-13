@@ -1,0 +1,16 @@
+@import "vars";
+@import "mixins";
+
+.panel {
+  color: black;
+  @include backgroundgradient(top left, rgba(lighten($panelbackgroundcolor, 10%), 0.6), bottom right, rgba(darken($panelbackgroundcolor, 20%), 0.6));
+  border: 0;
+  border-bottom: 2px solid black;
+  overflow: auto;
+  > .header {
+    margin: 0;
+    margin-left: 2.0em;
+    margin-right: 2.0em;
+    color: white;
+  }
+}

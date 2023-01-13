@@ -1,0 +1,66 @@
+@import "vars";
+@import "mixins";
+
+#notifications {
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  right: 1.0em;
+  max-width: 25%;
+
+  li {
+    margin: 5px;
+
+    div.notify {
+      background-color: #004F86;
+      border-radius: 6px 6px 6px 6px;
+      color: #FFFFFF;
+      margin: 0px;
+      padding: 1em;
+      width: 100%;
+      float: right;
+      clear: both;
+      margin: 5px;
+    }
+
+    .closebutton {
+      cursor: hand;
+      cursor: pointer;
+      float: right;
+    }
+
+    div.notify a:link {
+      color: #FFFFFF;
+    }
+  }
+}
+
+/*
+#notifications li div.notify:hover {
+  opacity: 0.15;
+}
+*/
+
+.notify {}
+
+div {
+  &.popup {
+    div.footer {
+      background-color: #004F86;
+      border: 0;
+
+      ul.actions {
+        background-color: #004F86;
+      }
+    }
+
+    ul.actions li {
+      background-color: #000000;
+    }
+  }
+
+  &#topbar div.notifystatus {
+	float: right;
+	line-height: $topbarlineheight;
+  }
+}

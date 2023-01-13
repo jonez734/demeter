@@ -1,0 +1,45 @@
+@import "vars";
+@import "mixins";
+
+footer#pagefooter {
+  background-color: gray;
+  @include backgroundgradient(top left,rgba(154, 154, 154, 0.6), right bottom, rgba(77, 77, 77, 0.6));
+/*  background-image: -moz-linear-gradient(right bottom , rgba(154, 154, 154, 0.6), rgba(77, 77, 77, 0.6)); */
+  color: $textcolor;
+/*  text-shadow: 0px 1px rgba(255, 255, 255, 0.3); */
+/*  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  clear: both;
+  border: 0px;
+  border-top: 1px solid black;
+
+  .copyright {
+    font-size: 0.75em;
+  }
+
+  img {
+    border: 0px;
+  }
+
+  ul.inlinelist {
+    margin: 0;
+    padding: 5px;
+    list-style-type: none;
+    display: inline-block;
+    clear: both;
+
+    li {
+      display: inline;
+    }
+  }
+
+  a:hover {
+    background: none;
+  }
+
+  .mantra {
+    font-size: 0.90em;
+  }
+}

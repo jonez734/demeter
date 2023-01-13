@@ -1,0 +1,11 @@
+{include file="pageheader.tmpl" title=$title|default:"NEEDINFO-TITLE"}
+<main>
+<div id="smoothstatecontainer" class="m-scene">
+<div class="m-page scene_element scene_element--fadein">
+{include file="topbar.tmpl" topbardata=$topbardata}
+{include file="sidebar.tmpl" data=$sidebardata}
+{$body}
+</div> {* m-page *}
+</div> {* smoothstatecontainer *}
+</main>
+{include file="pagefooter.tmpl"}

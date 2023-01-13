@@ -1,0 +1,15 @@
+ul.actions {
+  padding: 3px;
+  margin: 0;
+  font-size: 0.75em;
+  display: inline-block;
+
+  li {
+    display: inline;
+    a {
+      padding: 0;
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+  }
+}

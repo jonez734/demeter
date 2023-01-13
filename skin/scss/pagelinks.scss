@@ -1,0 +1,17 @@
+.pagelinks {
+  text-align: center;
+  margin: 1.0em auto;
+  padding: 0.25em;
+  list-style: none;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline;
+    padding-right: 1em;
+    margin-right: 10px;
+  }
+}

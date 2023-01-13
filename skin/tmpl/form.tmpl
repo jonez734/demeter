@@ -1,0 +1,46 @@
+{* <pre>{$form|var_export}</pre> *}
+
+{if $form.javascript}
+<script language="javascript">
+<!-- 
+    {$form.javascript}
+//-->
+</script>
+{/if}
+{if count($form.errors) > 0}
+  <div class="blurb errors">
+   <div class="header"><h1>Form Errors:</h1></div>
+   <div class="body">
+{*   <pre>{$form.errors|var_dump}</pre> *}
+    <ul>
+	    {foreach key=name item=error from=$form.errors}
+		    <li>{$error}</li>
+	    {/foreach}
+    </ul>
+   </div> {* body *}
+  </div> {* blurb errors *}
+{/if}
+
+<div class="blurb">
+<form {$form.attributes}>
+	{if $form.hidden}
+		<fieldset style="display: none;">
+		{foreach $form.hidden as $hidden}
+			{$hidden}
+		{/foreach}
+		</fieldset>
+	{/if}
+	{if count($form.elements) > 0}
+		{foreach $form.elements as $element}
+			{include file="form-element.tmpl" element=$element ingroup=False}
+		{/foreach}
+	{/if}
+</form>
+</div>
+{if isset($form.required_note) and not $form.frozen}
+<div class="blurb">
+<div class="body">
+	<p>{$form.required_note}</p>
+</div>
+</div>
+{/if}

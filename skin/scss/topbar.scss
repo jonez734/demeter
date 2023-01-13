@@ -1,0 +1,80 @@
+@import "vars";
+@import "mixins";
+
+div#topbar {
+  background-color: $backgroundcolor;
+  margin: 0px;
+  margin-bottom: 5px;
+  border: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  transition: all 0.4s ease;
+  height: $topbarheight;
+  overflow: hidden;
+
+  position: relative;
+  display: block;
+  text-shadow: 0px 1px rgba(255, 255, 255, 0.3);
+  &.fixed {
+    position: fixed;
+    top: 0;
+//    right: 0;
+    left: 0;
+    box-shadow: 0px 2px 3px 4px rgba(0, 0, 0, 0.4);
+		width: 100%;
+  }
+
+  .greeting {
+    float: left;
+    line-height: $topbarlineheight;
+  }
+
+	> .rightelements {
+  	float: right;
+    margin: 0px;
+    padding: 0px;
+	}
+
+	> .rightelements ul {
+		line-height: $topbarlineheight;
+	  margin: 0;
+	  padding: 0;
+    list-style-type: none;
+	}
+
+	> .rightelements ul li {
+		display: inline;
+		padding: 0px 4px;
+		float: left;
+		border-left: 1px solid black;
+	}
+
+	> .leftelements {
+  	float: left;
+    margin: 0px;
+    padding: 0px;
+	}
+
+	> .leftelements ul {
+		line-height: $topbarlineheight;
+	  margin: 0;
+	  padding: 0;
+    list-style-type: none;
+	}
+
+	> .leftelements ul li {
+		display: inline;
+		padding: 0px 4px;
+		float: left;
+		border-left: 1px solid black;
+	}
+
+	> .leftelements ul li, > .rightelements ul li {
+		@include transition(all 0.5s ease);
+	}
+
+	> .leftelements ul li a:hover, > .rightelements ul li a:hover {
+		background-color: $linkhoverbackgroundcolor;
+	}
+
+}

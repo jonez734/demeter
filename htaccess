@@ -1,0 +1,34 @@
+# SetEnvIf Request_URI ^/balancedcallback.php noauth=1
+
+AuthName "demeter"
+AuthType Basic
+AuthBasicProvider file
+AuthUserFile /srv/www/vhosts/demeter.zoidtechnologies.com/80/html/.htpasswd
+
+Order Deny,Allow
+Satisfy any
+Deny from all
+Require valid-user
+Allow from env=noauth
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^get-notify-count[/]?$ /notify.php?mode=count [qsappend,last]
+RewriteRule ^get-notify-list[/]?$ /notify.php?mode=list [qsappend,last]
+
+RewriteRule ^(about|contact)[/]?$ /page.php?name=$1 [last]
+
+#(dumps|haulers|upgrades|rentals|safety|quality|history|dealers|questions)[/]?$ /page.php?name=$1 [last]
+
+RewriteRule 	^register[/]?$ /register.php [last]
+RewriteRule	^join[/]?$ /register.php [last]
+RewriteRule	^logout[/]?$ /logout.php [last]
+RewriteRule	^login[/]?$ /login.php [last]
+
+RewriteRule     ^member-(edit|detail)-([\d]+)$ member.php?mode=$1&id=$2 [last]
+
+RewriteRule	^notify-(delete|detail)-([\d]+)$ /notify.php?mode=$1&id=$2 [last]
+
+RewriteRule	^profile-form[/]?$ /profile.php?mode=form [qsappend,last]

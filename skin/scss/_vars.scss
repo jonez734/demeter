@@ -1,0 +1,17 @@
+$backgroundcolor: gray; // #006633, #25567B, #090974, #101010
+
+$textcolor: white;
+
+$linkcolor: white; // darken($textcolor, 1%);
+$linkvisitedcolor: black;
+$linkhovercolor: darken($textcolor, 5%);
+$linkhoverbackgroundcolor: darken($backgroundcolor, 10%);
+
+$topbarheight: 1.8em;
+$topbarlineheight: 1.8em;
+
+$headerbackgroundstartcolor: #006633;
+$headerbackgroundendcolor: lighten($headerbackgroundstartcolor, 7%);
+$headertextcolor: white;
+
+$panelbackgroundcolor: gray;

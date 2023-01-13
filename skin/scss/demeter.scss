@@ -1,0 +1,86 @@
+@import "vars";
+@import "mixins";
+
+/* @see https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+main {
+  flex: 1;
+  @include backgroundgradient(top left, lighten($panelbackgroundcolor, 10%), right bottom, darken($panelbackgroundcolor, 10%));
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $backgroundcolor; // rgb(3, 62, 107);
+  background-image: url("/skin/art/background.jpg");
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*
+ * CSS Animations
+ * Don't forget to add vendor prefixes!
+ */
+.m-scene .scene_element {
+  animation-duration: 0.25s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.m-scene .scene_element--fadein {
+  animation-name: fadeIn;
+}
+
+.m-scene.is-exiting .scene_element {
+  animation-direction: alternate-reverse;
+}
+
+/*
+ * Keyframes
+ */
+@include keyframes(fadeIn) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+ul {
+  &.nobullets {
+    list-style-type: none;
+
+    li ul {
+      list-style-type: none;
+    }
+  }
+
+  /* http://stackoverflow.com/questions/6587807/comma-delimited-lists-with-css-i-want-an-oxford-comma */
+  &.commadelimited {
+    border: 0px solid red;
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      display: inline;
+      padding: 0.125em;
+      margin: 0;
+
+      &:after {
+        content: ", ";
+      }
+
+      &:last-child:after {
+        content: "";
+      }
+
+      &:nth-last-child(2):after {
+        content: " and ";
+      }
+
+      &:nth-last-child(3) + li:after {
+        content: ", and ";
+      }
+    }
+  }
+}

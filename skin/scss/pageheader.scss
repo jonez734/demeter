@@ -1,0 +1,36 @@
+@import "vars.scss";
+@import "mixins.scss";
+
+/* @see http://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
+/* @see https://css-tricks.com/adding-stroke-to-web-text/ */
+#pageheader {
+  background-color: gray;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+  	color: #006633;
+  }
+  
+  .logo 
+  { 
+/*    border: 1px solid red;  */
+    width: 167px; 
+    height: 73px; 
+    float: left;
+  }
+  .other {
+    float: left;
+    margin: 1.0em;
+/*    border: 1px solid blue; */
+  }
+  .address { 
+    font-size: 1.5em;
+  }
+  .sitetitle { 
+    font-size: 2.0em;
+  }
+}

@@ -1,0 +1,10 @@
+{if $unread == 0}
+<span class="fa fa-envelope-o"></span>&nbsp;<span>0 messages</span>
+{elseif $unread == 1}
+<span class="fa fa-envelope"></span>&nbsp;
+<span>1 message</span>
+{else}
+<span class="fa fa-envelope"></span>&nbsp;
+<span>{$unread} messages</span>
+{/if}
+

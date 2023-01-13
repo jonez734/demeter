@@ -1,0 +1,15 @@
+<ul class="breadcrumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+ {if count($breadcrumbs) > 0}
+	{foreach $breadcrumbs as $b}
+		<li itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+		{if $b@last == false}
+			{teos path=$b.labelpath itemprop=True link=True} &gt;
+		{else}
+			{teos path=$b.labelpath itemprop=True link=False}
+		{/if}
+		</li>
+    {/foreach}
+ {else}
+   <li>catalog</li>
+ {/if}
+</ul>

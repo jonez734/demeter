@@ -1,0 +1,42 @@
+<div id="topbarwrap">
+<div id="topbar" class="panel">
+{if isset($topbardata.left)}
+<div class="leftelements">
+{$left = $topbardata.left}
+<ul>
+{foreach $left as $leftelement}
+<li>{if $currentpage === $leftelement.name}<b>{$leftelement.title}</b>{else}<a href="{$leftelement.href}">{$leftelement.title}</a>{/if}</li>
+{/foreach}
+</ul>
+</div> {* leftelements *}
+{/if}
+<div class="rightelements">
+<ul>
+		<li>site={$currentsite} page={$currentpage} action={$currentaction}</li> 
+		{if $currentmember.flags.AUTHENTICATED}
+			{if $smarty.const.USEMEMBERCREDITS === True}
+				<li><span class="credits"><span class="fa fa-money fa-fw"></span>&nbsp;{$currentmember.credits|number_format}</a></span></li>
+			{/if}
+			<li><span class="messages">{include unread="0" file="notifystatus.tmpl"}</span></li>
+			<li><span class="logout"><span class="fa fa-sign-out fa-fw"></span>&nbsp;<a href="{$smarty.const.ENGINEURL}logout">logout</a></span></li>
+		{else}
+			{if $currentaction <> "login"}
+			<li><span class="fa fa-sign-in fa-fw"></span>&nbsp;{if $currentpage === "login"}login{else}<a href="{$smarty.const.ENGINEURL}login">login</a>{/if}</li>
+			{/if}
+			{if $currentaction <> "join" and $currentmember.flags.AUTHENTICATED}
+				<li><span class="fa fa-user-plus fa-fw"></span>&nbsp;<a href="{$smarty.const.ENGINEURL}join">join</a></li>
+			{/if}
+		{/if}
+
+		{if $smarty.const.USESHOPPINGCART === True}
+		{if count($currentcart.items) > 0}
+		<li><span class="fa fa-shopping-cart"></span>&nbsp;<a href="/cart-summary">{count($currentcart.items)}</a></li>
+		{/if}
+		{/if}
+
+		<li><span class="fa fa-clock-o fa-fw"></span>&nbsp;<span id="clock">{$smarty.now|date_format:"%l:%M %p %Z"}</span></li>
+		</ul>
+</div>
+</div> {* topbar *}
+</div> {* topbarwrap *}
+
